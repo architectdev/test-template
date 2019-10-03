@@ -1,0 +1,53 @@
+// Sidebar dark
+
+.app-sidebar {
+  &--dark {
+
+    .sidebar-header {
+      color: rgba($white, .2);
+    }
+
+    .sidebar-navigation {
+      .sidebar-header {
+
+      }
+
+      ul {
+
+        & > li {
+
+          &.mm-active {
+            & > a {
+              color: rgba($white, .9);
+              background: rgba($black, .1);
+
+              svg {
+                opacity: .6;
+              }
+            }
+          }
+        }
+
+        a {
+
+          &:after {
+            background: rgba($black,.2);
+          }
+
+          svg {
+
+          }
+
+          .fa-angle-right {
+
+          }
+
+          &:hover {
+
+          }
+        }
+      }
+    }
+
+  }
+}

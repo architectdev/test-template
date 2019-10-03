@@ -1,0 +1,11 @@
+// Sidebar dark
+
+.app-sidebar {
+  &--dark {
+    .app-sidebar--header {
+      &:after {
+        background: rgba($white, .1);
+      }
+    }
+  }
+}

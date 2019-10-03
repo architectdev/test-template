@@ -1,0 +1,12 @@
+<app-sidebar class="app-sidebar app-sidebar--dark"></app-sidebar>
+<div class="app-main">
+    <app-header class="app-header"></app-header>
+    <div class="app-content">
+        <div class="app-content--inner">
+            <div [@architectUIAnimation]="o.isActivated ? o.activatedRoute : ''">
+                <router-outlet #o="outlet"></router-outlet>
+            </div>
+        </div>
+        <app-footer class="app-footer font-size-sm text-black-50"></app-footer>
+    </div>
+</div>

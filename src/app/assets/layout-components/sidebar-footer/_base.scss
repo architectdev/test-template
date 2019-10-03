@@ -1,0 +1,12 @@
+//  Core
+
+.app-sidebar {
+  &--footer {
+    height: $footer-height;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 0;
+    transition: $transition-base;
+  }
+}

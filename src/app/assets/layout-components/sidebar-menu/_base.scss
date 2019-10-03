@@ -1,0 +1,145 @@
+//  Core
+
+.sidebar-navigation {
+
+  .sidebar-header {
+    text-transform: uppercase;
+    font-size: ($font-size-xs / 1.2);
+    padding: $spacer;
+    height: initial;
+    overflow: auto;
+    transition: $transition-base;
+    color: rgba($white, .2);
+  }
+
+  ul {
+    @include list-unstyled;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 1px 0;
+
+      & > a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        height: $navlink-height;
+        padding: 0 $layout-spacer;
+        transition: background .3s ease-out;
+        justify-content: space-between;
+        font-size: $font-size-xs / 1.1;
+        color: rgba($white, .5);
+
+        .fa-angle-right {
+          transform: rotate(0deg);
+          transition: $transition-base;
+          opacity: .4;
+        }
+
+        span {
+          display: flex;
+          align-items: center;
+
+          span {
+            white-space: nowrap;
+            transform: translate3d(0px, 0, 0);
+            transition: $transition-base;
+          }
+        }
+
+        svg {
+          margin-right: ($spacer);
+          width: 24px;
+          height: 24px;
+          transition: $transition-base;
+          color: $white;
+          fill: rgba($white, .25);
+          opacity: .2;
+        }
+      }
+    }
+
+    li > a:hover,
+    li > a.active,
+    li.active > a {
+      color: rgba($white, .9);
+      background: rgba($black, .1);
+
+      svg {
+        opacity: .6;
+      }
+    }
+  }
+
+  .sidebar-dropdown {
+
+  }
+
+  .sidebar-submenu {
+    overflow: hidden;
+
+    ul {
+      li {
+        padding: 0 ($layout-spacer);
+
+        &:first-child {
+          margin-top: $layout-spacer / 2;
+        }
+
+        &:last-child {
+          margin-bottom: $layout-spacer / 2;
+        }
+
+        a {
+          @include border-radius($border-radius);
+          height: $navlink-inner-height;
+          font-size: $font-size-xs / 1.12;
+          position: relative;
+          margin: 1px 0;
+          white-space: nowrap;
+
+          &:after {
+            content: "";
+            left: 14px;
+            transition: $transition-base;
+            width: 8px;
+            height: 8px;
+            top: 50%;
+            position: absolute;
+            margin: -4px 0 0 -4px;
+            opacity: 1;
+            @include border-radius($border-radius-lg);
+          }
+
+          &:hover {
+            &:after {
+              left: -2px;
+              opacity: 0;
+            }
+          }
+
+          &.active {
+
+          }
+        }
+      }
+
+      li.active {
+        a:after {
+          left: -2px;
+          background: rgba($black,.5);
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+// Themes
+
+//@import "themes/light";

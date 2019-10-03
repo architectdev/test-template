@@ -1,0 +1,23 @@
+// Color swatches
+
+.color-swatch {
+  position: relative;
+  margin: 0 0 ($spacer * 3);
+
+  &--bg {
+    @include border-top-radius($border-radius-lg);
+    height: 84px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &--title {
+    background: $white;
+    border: $gray-400 solid 1px;
+    @include border-bottom-right-radius($border-radius-lg * 2);
+    @include border-bottom-left-radius($border-radius-lg);
+    padding: ($spacer / 1.5) $spacer;
+    text-align: center;
+    color: $gray-700;
+  }
+}
