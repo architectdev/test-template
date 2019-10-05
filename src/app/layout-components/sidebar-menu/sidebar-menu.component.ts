@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Router } from '@angular/router';
 import { SidebarMenuService } from './sidebar-menu.service';
 // import { MenusService } from './menus.service';
 
@@ -16,25 +17,26 @@ import { SidebarMenuService } from './sidebar-menu.service';
 })
 export class SidebarMenuComponent implements OnInit {
   menus = [];
-  constructor(public SidebarMenuService: SidebarMenuService) {
-    this.menus = SidebarMenuService.getMenuList();
+  constructor(
+    private sidebarMenuService: SidebarMenuService,
+    private router: Router
+  ) {
+    this.menus = [ ...sidebarMenuService.getMenuList() ];
    }
 
   ngOnInit() {
+    const theActiveMenu = this.sidebarMenuService.getMenuItemByUrl(this.menus, this.router.url);
+    if (theActiveMenu) {
+      this.toggle(theActiveMenu);
+    }
   }
 
   getSideBarState() {
-    return this.SidebarMenuService.getSidebarState();
+    return this.sidebarMenuService.getSidebarState();
   }
 
   toggle(currentMenu) {
-    this.menus.forEach(element => {
-      if (element === currentMenu) {
-        currentMenu.active = !currentMenu.active;
-      } else {
-        element.active = false;
-      }
-    });
+    this.menus = this.sidebarMenuService.toggleMenuItem(this.menus, currentMenu);
   }
 
   getState(currentMenu) {
@@ -47,7 +49,7 @@ export class SidebarMenuComponent implements OnInit {
   }
 
   hasBackgroundImage() {
-    return this.SidebarMenuService.hasBackgroundImage;
+    return this.sidebarMenuService.hasBackgroundImage;
   }
 
 }
