@@ -28,7 +28,7 @@
     "ng-apexcharts": "1.0.5",
     "apexcharts": "3.8.6",
     "ngx-perfect-scrollbar": "8.0.0",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "@angular/cdk": "8.2.1",
     "@fortawesome/free-regular-svg-icons": "5.11.2",
     "@fortawesome/free-brands-svg-icons": "5.11.2",
